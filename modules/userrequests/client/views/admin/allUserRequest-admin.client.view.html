@@ -1,0 +1,33 @@
+<section ng-if="vm.userrequests.length>0">
+    <div class="page-header">
+        <h1> All Userrequests</h1>
+    </div>
+    <div ng-repeat="userrequest in vm.userrequests">
+        <div class="list-group">
+            <div class="list-group-item">
+                <small class="list-group-item-text">
+                    Posted on
+                    <span ng-bind="userrequest.created | date:'mediumDate'"></span>
+                    by
+                    <span ng-if="userrequest.user" ng-bind="userrequest.user.displayName"></span>
+                    <span ng-if="!userrequest.user">Deleted User</span>
+                </small>
+                <h4 class="list-group-item-heading" ng-bind="userrequest.name"></h4>
+                <div class="list-group-item-text">
+                    <!-- ng-bind="userrequest.issueStatus" -->
+                    Title: <b>{{userrequest.bookId.title}}</b> <br>
+                    Request Status: <b>{{userrequest.issueStatus}}</b> <br> <br>
+                    Request Type : <b> {{userrequest.issueType}} </b><br>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-warning text-center" ng-if="!vm.userrequests.length">
+        No Userrequests yet
+    </div>
+</section>
+<section ng-if="!vm.userrequests.length>0">
+    <h1>No user has created a request yet</h1>
+</section>

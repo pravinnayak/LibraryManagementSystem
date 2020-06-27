@@ -1,0 +1,59 @@
+<section ng-if="vm.userrequests.length>0">
+  <div class="page-header">
+    <h1>
+      Requests
+      <a class="btn btn-primary pull-right" data-ui-sref="admin.userrequests.create">
+        <i class="glyphicon glyphicon-plus"></i>
+      </a>
+    </h1>
+  </div>
+  <div class="list-group">
+    <div data-ng-repeat="article in vm.userrequests">
+      <div class="list-group-item">
+        <small class="list-group-item-text">
+          Posted on
+          <span data-ng-bind="article.created | date:'mediumDate'"></span>
+          by
+          <span ng-if="article.user" ng-bind="article.user.displayName"></span>
+          <span ng-if="!article.user">Deleted User</span>
+        </small>
+        <h4 class="list-group-item-heading" data-ng-bind="article.bookId.title"></h4>
+
+        <h4 class="list-group-item-heading" data-ng-bind="article.issueType"></h4>
+        <h5 class="list-group-item-heading" ng-if="article.issueStatus=='Requested'"> current Issue status: Requested</h5>
+        <h5 class="list-group-item-heading" ng-if="article.issueStatus=='A'"> current Issue status: Approved</h5>
+        <h5 class="list-group-item-heading" ng-if="article.issueStatus=='R'"> current Issue status: Rejected</h5>
+
+        <div class="form-group">
+          <label>
+            <input type="radio" ng-click="vm.statusChange(article)" data-ng-model="article.issueStatus" value="A">
+            Approved
+          </label><br />
+          <label>
+            <input type="radio" ng-click="vm.statusChange(article)" data-ng-model="article.issueStatus" value="R">
+            Rejected
+          </label><br />
+          <div data-ng-if="vm.radioTick[article._id]=='Requested'">
+            <button class="btn btn-defualt" ng-click="vm.updateRequest(article)">Submit</button>
+          </div>
+
+
+          <!-- <input name="readAvailable" data-ng-model="vm.article.readAvailable" id="readAvailable" class="form-control"
+              placeholder="true or false"></input> -->
+        </div>
+
+      </div>
+      <br>
+
+
+
+      <!-- <p class="list-group-item-text" data-ng-bind="article.content"></p> -->
+    </div>
+  </div>
+  <!-- <div class="alert alert-warning text-center" data-ng-if="vm.userrequests.$resolved && !vm.userrequests.length">
+    No userrequests ye
+  </div> -->
+</section>
+<section data-ng-if="!vm.userrequests.length">
+  <h1>You Have no pending Requests</h1>
+</section>

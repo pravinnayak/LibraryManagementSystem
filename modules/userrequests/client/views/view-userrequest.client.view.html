@@ -1,0 +1,10 @@
+<section ng-if="vm.book && vm.issueStatus=='Approved' &&  checkVar">
+  <div class="page-header">
+    <h1 ng-bind="vm.book.title"></h1>
+    <div ng-if="vm.note">{{vm.note}}</div>
+  </div>
+  
+  <p class="lead" ng-bind="vm.book.content"></p>
+
+
+</section>
