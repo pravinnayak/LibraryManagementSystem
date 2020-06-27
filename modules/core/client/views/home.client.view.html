@@ -1,0 +1,35 @@
+<section id="#home">
+  <img class="homeBackgroud" src="/modules/core/client/img/homeBg3.jpg" alt="" srcset="">
+  <div class="container">
+    <div class="row">
+      <div class="col-12" class="text-primary">
+        <div ng-if="vm.authentication.user">
+          <h2 class="text-white">Hello {{vm.authentication.user.displayName}},</h2></br>
+          <div class="col-sm-offset-1 col-8" ng-if="!vm.authentication.user.roles.includes('admin')">
+            <h3 class="text-white">Welcome back, Explore our options</h3><br>
+            <h4 class="text-white">You have {{(vm.totalFreeSeconds)}} free read seconds available</h4>
+            <h4 class="text-white">Your member ship ends on {{vm.authentication.user.totalFreeMemberShipEnds}}</h4>
+
+          </div>
+          <div class="col-sm-offset-1 col-8" ng-if="vm.authentication.user.roles.includes('admin')">
+            <h3 class="text-white">Welcome back, Admin</h3><br>
+            <h4 class="text-white">Check if you have recieved any requests today </h4>
+            <h4 class="text-white">Have a happy day </h4>
+
+          </div>
+
+        </div>
+        <div ng-if="!vm.authentication.user">
+          <h2 class="text-white">Hey there,</h2></br>
+          <div class="col-sm-offset-1 col-8">
+            <h3 class="text-white">Looks like you have not signed in yet, Sign in to experience the world of books</h3>
+
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </div>
+</section>
