@@ -1,0 +1,26 @@
+<section class="row">
+    <div class="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-10">
+        <div ng-repeat="history in vm.user.booksIssueHistory"  ng-if="vm.user.booksIssueHistory.length>0">
+            <div class="list-group">
+
+                <div class="list-group-item">
+
+                    <small class="list-group-item-text">
+                        Posted on
+                        <span ng-bind="history.created | date:'mediumDate'"></span>
+                    </small>
+                    <div class="list-group-item-heading">{{history.title}} <span ng-click="vm.remove(history)"
+                            class="glyphicon glyphicon-remove" style="float: right;" title="remove"></span></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="list-group" ng-if="!vm.user.booksIssueHistory.length>0">
+            <h1>Looks like you havent issued any book,Please issue a book to check your history status</h1>
+        </div>
+
+    </div>
+    </div>
+</section>
