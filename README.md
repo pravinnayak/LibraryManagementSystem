@@ -8,6 +8,69 @@
 
 MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
 
+
+
+
+
+## Before You Begin
+Install a local mongodb, version 4.0 (otherwise mongorestore wont work) <br>
+
+In the LibraryManagementSystem you will find a dump.zip,Unzip this file<br>
+Now start mongod<br>
+open a cmd and run <br>
+```bash
+mongorestore pathToDDumpFile/dump/
+```
+Go to public/lib,Delete the existing lib folder, unzip the lib.zip in that folder <br>
+download node.js version 10.0 <br>
+in the main folder, i.e LibraryManagementSystem open a command prompt<br>
+run the command
+```bash
+npm install
+```
+This should create a node_modules folder<br>
+
+run a cmd node server.js<br>
+
+This should start a web application at localhost:3000<br>
+
+
+
+# Auth Page
+User can use sign-in,sign-up page to register himself
+
+# Issue books
+User can issue books by going to List article tab in the Navigation bar, Under each book he will find a Read and Issue button,(Issue)which only works under mentioned time range
+
+# Member Ship and Number of reading hrs
+The above details are given to user on the home page,with Number of reading hours limited to 1hr by default and memebership expiry date to 8 days from the day he sign-up
+Note :- bonus points have been included in this validation
+
+#book history 
+Please go to the dropdown in the Nav bar under Diplay user,Goto edit profile, where you will find the view history option and a remove button to delete history
+
+
+
+# Admin Section
+
+# Issue and acceptance
+Under Admin Nav bar dropdown, admin can Manage User Requests - Accept or reject
+
+# Creation updation and deletion of book and which books are available for read and taking home
+Under Admin Nav bar dropdown,Manage articles - here he can add books, make read and issue status true or false so that other users cant read the book admin does not want anyone to read
+
+# view all request
+Admin can use the view all request button to see all the requests
+
+
+
+
+
+
+
+
+
+
 ## Before You Begin
 Before you begin we recommend you read about the basic building blocks that assemble a MEAN.JS application:
 * MongoDB - Go through [MongoDB Official Website](http://mongodb.org/) and proceed to their [Official Manual](http://docs.mongodb.org/manual/), which should help you understand NoSQL and MongoDB better.
