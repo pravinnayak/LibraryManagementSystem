@@ -1,0 +1,18 @@
+<section class="col-md-offset-1 col-11" ng-if="vm.options.length>0">
+    <div>
+        <h3>Hey you are trying to issue &nbsp;&nbsp;&nbsp;<i>{{$root.issueArticle.title}}</i> </h3>
+        <small><b>You will not get option to issue between 10-5 if its past 3PM and you will not get an option to issue books for 7 days if your member ship ends with in 5 days</b></small><br><br>
+        <select ng-model="vm.selecteOption" ng-change="vm.dropDownChange()">
+            <option ng-repeat="x in  vm.options">{{x}}</option>
+          </select>
+    </div>
+    <div ng-if="vm.selecteOption=='between 10am to 5pm'">
+        <strong><b> Note<sup>*</sup> You have to return the book before 5PM</b> </strong>
+    </div>
+    <br>
+    <button class="btn btn-default" ng-click="vm.submitIssue()">Submit Issue Request</button>
+</section>
+<section ng-if="!vm.options.length>0">
+    <h1>So Sorry, looks like your memberships ends within 7 days and the time is past 3, so can not allow you to issue books,Renew your member ship to issue for 7 days, Thank you </h1>
+
+</section>

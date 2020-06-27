@@ -1,0 +1,42 @@
+<section ng-if="vm.display">
+  <section class="col-11" ng-if="vm.article.readAvailable">
+    <section ng-if="vm.remaingSec>0;">
+      <div class="page-header">
+        <div class="col-sm-offset-9">
+          <!-- <timer></timer>
+          <timer interval="1000" /> -->
+          <timer interval="1000"><b> {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}}
+              second{{secondsS}}.</b> </timer>
+        </div>
+        <h1 ng-bind="vm.article.title"></h1>
+  
+  
+      </div>
+      <small>
+        <em class="text-muted">
+          Posted on
+          <span ng-bind="vm.article.created | date:'mediumDate'"></span>
+          by
+          <span ng-if="vm.article.user" ng-bind="vm.article.user.displayName"></span>
+          <span ng-if="!vm.article.user">Deleted User</span>
+        </em>
+      </small>
+      <p class="lead" ng-bind="vm.article.content"></p>
+  
+    </section>
+    <section ng-if="!vm.remaingSec>0;">
+      <div class="page-header">
+        <h1>You have exhuasted your free minutes please ugrade</h1>
+      </div>
+  
+    </section>
+  
+  
+  </section>
+  <section class="col-11" ng-if="!vm.article.readAvailable">
+    <h1>Read for Book has not been Tuned on, Sorry</h1>
+  </section>
+</section>
+<section ng-if="!vm.display">
+  <h1>Looks like your member ship expired</h1>
+</section>
