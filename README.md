@@ -34,6 +34,10 @@ run a cmd node server.js<br>
 
 This should start a web application at localhost:3000<br>
 
+If the restore is successfull, it will create a admin user called libraryAdmin with password ```BdN7uMGtDtdGdbNzqW9P7NzW74S```
+
+normal users can signup.
+
 
 
 # Auth Page
